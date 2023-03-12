@@ -1,4 +1,6 @@
 @import url('./normalize.css');
+@import url('./animation.css');
+
 
 h1 {
   text-align: center;
@@ -9,16 +11,16 @@ p {
 }
 
 .wrapper {
-  max-width: 1900px;
+  max-width: 80vw;
   margin: auto;
-  padding: 0 40px;
+  padding: 0 2%;
   border: 1px solid black;
 }
 
 .accordion {
   background-color: grey;
   border-radius: 5px;
-  padding: 40px 20px;
+  padding: 4% 8%;
 }
 
 .accordion__item {
@@ -31,7 +33,7 @@ p {
 }
 
 .accordion__item:last-child{
-  margin-bottom: 0
+  margin-bottom: 0;
 }
 
 .item {
@@ -41,32 +43,70 @@ p {
   border-bottom: 1px solid  black;
 }
 
-.item * {
+.accordion:hover > .accordion__item > a {
+  color: black;
+}
+
+.accordion:hover > .accordion__item > a > label > span{
+  display: block;
+}
+
+.item a{
+  cursor: pointer;
+  text-decoration: none;
+  color: blue;
+}
+
+.item a * {
   cursor: pointer;
 }
 
-/*show content when you hover into item*/
-.item:hover > .item__content {
+.item a:hover > .item__content {
+  animation: 0.5s showImage;
   max-height: 100%;
 }
 
-.item__label {
 
+.item a:hover > .item__label span {
+  display: block;
+  transform: rotate(90deg);
 }
+
+.item__label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.item__label span {
+  display: none;
+  transition: transform 0.5s ease;
+}
+
 .item__input {
   display: none;
 }
 
-
-.item__input[type='radio']:checked + .item__content {
+.item > a > .item__input[type='radio']:checked ~ .item__content {
+  animation: 0.5s showImage;
   max-height: 100%;
 }
+
 /*hide content for*/
 .item__content {
+  display: flex;
+  justify-content: center;
   overflow: hidden;
-  transition: max-height 0.3s;
+  max-height: 0;
+  animation: 0.3s hideImage;
   max-height: 0;
 }
 
+.item__content img {
+  max-height: 200px;
+}
 
-
+.item__input[type='radio']:checked ~ .item__label span {
+  transform: rotate(90deg);
+}
