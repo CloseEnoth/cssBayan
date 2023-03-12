@@ -82,8 +82,12 @@ p {
 .accordion > .accordion__item > a {
   color: black;
 }
-
+/*
 .accordion > .accordion__item > a > label > span{
+  display: block;
+}
+*/
+.accordion > .accordion__item > a > label > img{
   display: block;
 }
 
@@ -94,10 +98,18 @@ p {
   .accordion:hover > .accordion__item > a {
     color: black;
   }
+  /*
   .accordion > .accordion__item > a > label > span{
     display: none;
   }
   .accordion:hover > .accordion__item > a > label > span{
+    display: block;
+  }
+  */
+  .accordion > .accordion__item > a > label > img{
+    display: none;
+  }
+  .accordion:hover > .accordion__item > a > label > img{
     display: block;
   }
   
@@ -132,10 +144,16 @@ p {
   color: white;
   transition: color 0.5s ease;
 }
-
+/*
 .item a:hover > .item__label span {
   display: block;
-  transform: rotate(360deg);
+  transform: rotate(250deg);
+}
+*/
+.item a:hover > .item__label img {
+  display: block;
+  transform: rotate(225deg);
+  filter: brightness(0%) invert(100%)
 }
 
 .item__label {
@@ -145,6 +163,10 @@ p {
 
   font: normal 2rem/2.5rem 'Circular Std','Montserrat', sans-serif;
   color: #514FBE;
+}
+
+.item__label img {
+  transition: all 1s ease;
 }
 
 @media (max-width: 320px) {
@@ -167,9 +189,13 @@ p {
   }
   
 }
-
+/*
 .item__label span {
   transition: transform 1s ease, color 1s ease;
+}
+*/
+.item__label img {
+  transition: all 1s ease;
 }
 
 .item__input {
@@ -181,9 +207,9 @@ p {
   transition: color 1s ease;
 }
 
-.item__input[type='radio']:checked ~ .item__label span {
-  color: white;
-  transform: rotate(360deg);
+.item__input[type='radio']:checked ~ .item__label img {
+  filter: brightness(0%) invert(100%);
+  transform: rotate(225deg);
 }
 
 .item > a > .item__input[type='radio']:checked ~ .item__content {
