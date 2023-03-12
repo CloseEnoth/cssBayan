@@ -43,8 +43,8 @@ p {
 }
 
 .accordion__item {
-  margin-bottom: 40px;
-  padding: 10px 20px;
+  margin-bottom: 2rem;
+  padding: 1rem 2rem;
   max-width: 100%;
   list-style: none;
   background-color: white;
