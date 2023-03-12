@@ -1,10 +1,23 @@
 @import url('./normalize.css');
 @import url('./animation.css');
 
+/*font-family: 'Montserrat', sans-serif;*/
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: rgb(32, 32, 39);
+}
 
 h1 {
   text-align: center;
   font-size: 3rem;
+  color: rgb(238, 149, 16)
+}
+
+@media (max-width: 320px) {
+  h1 {
+    color: red;
+  }
 }
 
 p {
@@ -18,8 +31,8 @@ p {
 }
 
 .accordion {
-  background-color: grey;
-  border-radius: 5px;
+  background-color: inherit;
+  border-radius: 1rem;
   padding: 4% 8%;
 }
 
@@ -29,7 +42,7 @@ p {
   max-width: 100%;
   list-style: none;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 0.5rem;
 }
 
 .accordion__item:last-child{
@@ -39,9 +52,13 @@ p {
 .item {
   display: flex;
   flex-direction: column;
-  border-top: 1px solid black;
-  border-bottom: 1px solid  black;
+  margin-bottom: 1rem;
 }
+
+.item:last-child {
+  margin-bottom: 0;
+}
+
 
 .accordion:hover > .accordion__item > a {
   color: black;
@@ -55,6 +72,7 @@ p {
   cursor: pointer;
   text-decoration: none;
   color: blue;
+  transition: color 0.5s ease;
 }
 
 .item a * {
@@ -88,10 +106,18 @@ p {
   display: none;
 }
 
+
+.item > a > .item__input[type='radio']:checked ~ .item__label {
+  color: rgb(238, 149, 16);
+  transition: color 0.5s ease;
+}
+
 .item > a > .item__input[type='radio']:checked ~ .item__content {
   animation: 0.5s showImage;
   max-height: 100%;
 }
+
+
 
 /*hide content for*/
 .item__content {
